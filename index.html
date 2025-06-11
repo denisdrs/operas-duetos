@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Árias e Duetos – Ópera</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cardo&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 2rem;
+      font-family: 'Cardo', serif;
+      background: #fff8dc;
+      color: #3b2f2f;
+      line-height: 1.6;
+    }
+
+    .container {
+      background-color: rgba(255, 248, 220, 0.9);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h1, h2 {
+      text-align: center;
+      font-weight: normal;
+      margin-bottom: 0.5rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin-top: 0;
+    }
+
+    .info {
+      text-align: center;
+      font-style: italic;
+      margin-bottom: 2rem;
+    }
+
+    .columns {
+      display: flex;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    .column {
+      flex: 1;
+    }
+
+    .line {
+      margin-bottom: 0.8rem;
+    }
+
+    .label {
+      font-weight: bold;
+      color: #5a3a2f;
+    }
+
+    .personagem {
+      font-style: italic;
+      font-weight: bold;
+      font-size: 1.1rem;
+      color: #8b0000;
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 0.9rem;
+      margin-top: 2rem;
+      font-style: italic;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .nav button {
+      font-family: 'Cardo', serif;
+      background-color: #5a3a2f;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .section {
+      display: none;
+    }
+
+    .section.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎶 Árias e Duetos da Ópera</h1>
+    <div class="nav">
+      <button onclick="showSection('duetos')">Duetos</button>
+      <button onclick="showSection('paula')">Árias Paula</button>
+      <button onclick="showSection('garcia')">Árias Garcia</button>
+    </div>
+
+    <!-- Seções das árias e duetos -->
+
+    <div id="garcia" class="section active">
+      <h2>Árias Garcia</h2>
+
+      <!-- Recondita armonia (Tosca) -->
+      <div class="info">Recondita armonia – de <i>Tosca</i> (Harmonia secreta)</div>
+      <div class="columns">
+        <div class="column">
+          <div class="line">Recondita armonia di bellezze diverse!</div>
+          <div class="line">È bruna Floria, l'ardente amante mia.</div>
+          <div class="line">E te, beltade ignota, cinta di chiome bionde,</div>
+          <div class="line">Tu azzurro hai l'occhio, Tosca ha l'occhio nero!</div>
+          <div class="line">L'arte nel suo mistero le diverse bellezze insiem confonde...</div>
+          <div class="line">Ma nel ritrar costei, il mio solo pensiero,</div>
+          <div class="line">Ah, il mio solo pensier sei tu, Tosca, sei tu!</div>
+        </div>
+        <div class="column">
+          <div class="line">Harmonia secreta de belezas diversas!</div>
+          <div class="line">Floria é morena, minha ardente amante.</div>
+          <div class="line">E você, beleza desconhecida, com cabelos loiros,</div>
+          <div class="line">Tem olhos azuis, Tosca tem olhos negros!</div>
+          <div class="line">A arte, em seu mistério, mistura as belezas diferentes...</div>
+          <div class="line">Mas ao pintar esta, o meu único pensamento,</div>
+          <div class="line">Ah, meu único pensamento é você, Tosca, é você!</div>
+        </div>
+      </div>
+
+      <!-- Nessun dorma já incluso -->
+    </div>
+
+    <div id="paula" class="section">
+      <h2>Árias Paula</h2>
+
+      <!-- Canção para a Lua (Rusalka) -->
+      <div class="info">Canção para a Lua – de <i>Rusalka</i> (Canção para a Lua)</div>
+      <div class="columns">
+        <div class="column">
+          <div class="line">Měsíčku na nebi hlubokém,</div>
+          <div class="line">světlo tvé daleko vidí,</div>
+          <div class="line">po světě bloudíš širokém,</div>
+          <div class="line">díváš se v příbytky lidí.</div>
+        </div>
+        <div class="column">
+          <div class="line">Ó lua no céu profundo,</div>
+          <div class="line">tua luz alcança longe,</div>
+          <div class="line">vagueias pelo mundo vasto,</div>
+          <div class="line">espreitando os lares dos homens.</div>
+        </div>
+      </div>
+
+      <!-- O mio babbino caro -->
+      <div class="info">O mio babbino caro – de <i>Gianni Schicchi</i> (Meu querido papai)</div>
+      <div class="columns">
+        <div class="column">
+          <div class="line">O mio babbino caro,</div>
+          <div class="line">mi piace, è bello, bello;</div>
+          <div class="line">vo' andare in Porta Rossa</div>
+          <div class="line">a comperar l'anello!</div>
+          <div class="line">Sì, sì, ci voglio andare!</div>
+        </div>
+        <div class="column">
+          <div class="line">Meu querido papai,</div>
+          <div class="line">eu gosto dele, ele é lindo, lindo;</div>
+          <div class="line">quero ir à Porta Rossa</div>
+          <div class="line">comprar o anel!</div>
+          <div class="line">Sim, sim, eu quero ir!</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="duetos" class="section">
+      <h2>Duetos</h2>
+
+      <!-- Brindisi -->
+      <div class="info">Brindisi – de <i>La traviata</i> (Brinde)</div>
+      <div class="columns">
+        <div class="column">
+          <div class="line">Libiamo, libiamo ne' lieti calici</div>
+          <div class="line">che la bellezza infiora,</div>
+          <div class="line">e la fuggevol ora</div>
+          <div class="line">s'inebrii a voluttà.</div>
+        </div>
+        <div class="column">
+          <div class="line">Brindemos, brindemos com taças felizes</div>
+          <div class="line">que a beleza enfeita,</div>
+          <div class="line">e que a hora fugitiva</div>
+          <div class="line">se embriague de prazer.</div>
+        </div>
+      </div>
+
+      <!-- O soave fanciulla -->
+      <div class="info">O soave fanciulla – de <i>La Bohème</i> (Ó doce donzela)</div>
+      <div class="columns">
+        <div class="column">
+          <div class="line">O soave fanciulla, o dolce viso,</div>
+          <div class="line">di mite circonfuso alba lunar,</div>
+          <div class="line">in te ravviso il sogno</div>
+          <div class="line">ch'io vorrei sempre sognar!</div>
+        </div>
+        <div class="column">
+          <div class="line">Ó doce donzela, ó doce rosto,</div>
+          <div class="line">envolto por um suave luar,</div>
+          <div class="line">em ti reconheço o sonho</div>
+          <div class="line">que eu sempre quis sonhar!</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      Apresentações traduzidas e adaptadas para apreciação didática.
+    </div>
+  </div>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+  </script>
+</body>
+</html>
