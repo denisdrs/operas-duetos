@@ -32,7 +32,18 @@
         }
         
         .header {
-            margin-bottom: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .header-image {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            margin: 0 auto 25px;
+            display: block;
+            border: 3px solid #8b0000;
         }
         
         .title {
@@ -55,7 +66,7 @@
             flex-wrap: wrap;
             justify-content: center;
             gap: 30px;
-            margin-top: 40px;
+            margin-top: 20px;
         }
         
         .category {
@@ -65,6 +76,7 @@
             padding: 20px;
             width: 100%;
             max-width: 350px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
         }
         
         .category-title {
@@ -85,7 +97,7 @@
             background: #8b0000;
             color: #f7f0d9;
             border: none;
-            padding: 12px 20px;
+            padding: 14px 20px;
             border-radius: 8px;
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.1rem;
@@ -93,30 +105,53 @@
             cursor: pointer;
             transition: all 0.3s ease;
             text-align: center;
+            display: block;
+            text-decoration: none;
         }
         
         .song-btn:hover {
-            background: #6d0000;
             transform: translateY(-3px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
         }
         
         .aria-garcia {
             background: #8b0000;
         }
         
+        .aria-garcia:hover {
+            background: #6d0000;
+        }
+        
         .aria-paula {
             background: #006400;
+        }
+        
+        .aria-paula:hover {
+            background: #004d00;
         }
         
         .duetos {
             background: #00008b;
         }
         
+        .duetos:hover {
+            background: #00006d;
+        }
+        
+        .bloco1 {
+            background: #8b4513;
+        }
+        
+        .bloco1:hover {
+            background: #6b3510;
+        }
+        
         .footer {
             margin-top: 50px;
             font-size: 0.9rem;
             color: #5a4a30;
+            padding: 15px;
+            border-top: 1px solid rgba(139, 0, 0, 0.1);
         }
         
         /* Estilos da página de canção */
@@ -128,6 +163,7 @@
         .song-header {
             text-align: center;
             margin-bottom: 30px;
+            padding: 0 15px;
         }
         
         .song-title {
@@ -141,18 +177,32 @@
             font-size: 1.3rem;
             color: #5a4a30;
             margin-bottom: 15px;
+            font-style: italic;
         }
         
         .back-btn {
             background: #5a4a30;
             color: #f7f0d9;
             border: none;
-            padding: 8px 15px;
+            padding: 10px 20px;
             border-radius: 5px;
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1rem;
+            font-size: 1.1rem;
             cursor: pointer;
-            margin-bottom: 20px;
+            margin: 0 0 20px 15px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            background: #8b0000;
+            transform: translateX(-3px);
+        }
+        
+        .back-btn::before {
+            content: "←";
         }
         
         .lyrics-container {
@@ -161,6 +211,7 @@
             gap: 40px;
             max-width: 800px;
             margin: 0 auto;
+            padding: 0 10px;
         }
         
         .section-title {
@@ -176,14 +227,15 @@
         .lyrics-section {
             background: rgba(255, 255, 255, 0.2);
             border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            padding: 25px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border: 1px solid rgba(139, 0, 0, 0.1);
         }
         
         .lyrics-row {
             display: flex;
             margin-bottom: 25px;
-            gap: 15px;
+            gap: 20px;
         }
         
         .original, .translation {
@@ -193,12 +245,13 @@
         .character {
             font-weight: 700;
             color: #8b0000;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
             font-size: 1.1rem;
+            font-family: 'Cinzel', serif;
         }
         
         .text {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             line-height: 1.8;
         }
         
@@ -220,6 +273,14 @@
             .categories {
                 gap: 20px;
             }
+            
+            .song-title {
+                font-size: 1.8rem;
+            }
+            
+            .song-opera {
+                font-size: 1.1rem;
+            }
         }
         
         @media (max-width: 480px) {
@@ -234,6 +295,15 @@
             .text {
                 font-size: 1rem;
             }
+            
+            .song-btn {
+                padding: 12px 15px;
+                font-size: 1rem;
+            }
+            
+            .category {
+                padding: 15px;
+            }
         }
     </style>
 </head>
@@ -242,270 +312,47 @@
         <!-- Página inicial -->
         <div id="home-page" class="home-page">
             <div class="header">
+                <img src="https://i.imgur.com/ze6DT5l.jpg" alt="Ópera" class="header-image">
                 <h1 class="title">Uma Noite na Ópera</h1>
                 <p class="subtitle">Acompanhe as árias e duetos com tradução em tempo real</p>
             </div>
             
             <div class="categories">
+                <!-- Bloco 1: Brindisi -->
                 <div class="category">
-                    <h2 class="category-title">Árias - Garcia</h2>
+                    <h2 class="category-title">Dueto de Abertura</h2>
+                    <div class="song-buttons">
+                        <button class="song-btn bloco1" data-song="brindisi">Brindisi (La Traviata)</button>
+                    </div>
+                </div>
+                
+                <!-- Bloco 2: Três canções -->
+                <div class="category">
+                    <h2 class="category-title">Árias e Duetos</h2>
                     <div class="song-buttons">
                         <button class="song-btn aria-garcia" data-song="recondita">Recondita Armonia (Tosca)</button>
-                        <button class="song-btn aria-garcia" data-song="nessun">Nessun Dorma (Turandot)</button>
+                        <button class="song-btn aria-paula" data-song="bambino">O Mio Babbino Caro (Gianni Schicchi)</button>
+                        <button class="song-btn duetos" data-song="fanciulla">O Soave Fanciulla (La Bohème)</button>
                     </div>
                 </div>
                 
+                <!-- Bloco 3: Duas canções -->
                 <div class="category">
-                    <h2 class="category-title">Árias - Paula</h2>
+                    <h2 class="category-title">Árias Clássicas</h2>
                     <div class="song-buttons">
                         <button class="song-btn aria-paula" data-song="lua">Canção para a Lua (Rusalka)</button>
-                        <button class="song-btn aria-paula" data-song="bambino">O Mio Babbino Caro (Gianni Schicchi)</button>
-                    </div>
-                </div>
-                
-                <div class="category">
-                    <h2 class="category-title">Duetos</h2>
-                    <div class="song-buttons">
-                        <button class="song-btn duetos" data-song="brindisi">Brindisi (La Traviata)</button>
-                        <button class="song-btn duetos" data-song="fanciulla">O Soave Fanciulla (La Bohème)</button>
+                        <button class="song-btn aria-garcia" data-song="nessun">Nessun Dorma (Turandot)</button>
                     </div>
                 </div>
             </div>
             
             <div class="footer">
-                <p>Garcia Júnior & Paula</p>
+                <p>Tenor: Antônio Garcia
+Soprano: Paula Magh</p>
             </div>
         </div>
         
         <!-- Páginas de canções individuais -->
-        <!-- Recondita Armonia -->
-        <div id="recondita-page" class="song-page">
-            <button class="back-btn">Voltar</button>
-            <div class="song-header">
-                <h2 class="song-title">Recondita Armonia</h2>
-                <p class="song-opera">Tosca - Giacomo Puccini</p>
-            </div>
-            
-            <div class="lyrics-container">
-                <div class="lyrics-section">
-                    <h3 class="section-title">Ária</h3>
-                    <div class="lyrics-row">
-                        <div class="original">
-                            <div class="character">CAVARADOSSI</div>
-                            <div class="text">
-                                Recondita armonia di bellezze diverse!<br>
-                                È bruna Floria, l'ardente amante mia.<br>
-                                E te, beltade ignota, cinta di chiome bionde,<br>
-                                tu azzurro hai l'occhio, Tosca ha l'occhio nero!
-                            </div>
-                        </div>
-                        <div class="translation">
-                            <div class="character">CAVARADOSSI</div>
-                            <div class="text">
-                                Estranha harmonia de diferentes belezas!<br>
-                                Flória é morena, minha amante ardente.<br>
-                                E você, beleza desconhecida, de cabelos loiros,<br>
-                                tem olhos azuis, Tosca tem olhos negros!
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="lyrics-row">
-                        <div class="original">
-                            <div class="character">CAVARADOSSI</div>
-                            <div class="text">
-                                L'arte nel suo mistero<br>
-                                le diverse bellezze insiem confonde...<br>
-                                Ma nel ritrar costei<br>
-                                il mio solo pensiero,<br>
-                                ah! il mio sol pensier sei tu!
-                            </div>
-                        </div>
-                        <div class="translation">
-                            <div class="character">CAVARADOSSI</div>
-                            <div class="text">
-                                A arte em seu mistério<br>
-                                confunde as diferentes belezas...<br>
-                                Mas ao retratar esta,<br>
-                                meu único pensamento,<br>
-                                ah! meu único pensamento és tu!
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Nessun Dorma -->
-        <div id="nessun-page" class="song-page">
-            <button class="back-btn">Voltar</button>
-            <div class="song-header">
-                <h2 class="song-title">Nessun Dorma</h2>
-                <p class="song-opera">Turandot - Giacomo Puccini</p>
-            </div>
-            
-            <div class="lyrics-container">
-                <div class="lyrics-section">
-                    <h3 class="section-title">Ária</h3>
-                    <div class="lyrics-row">
-                        <div class="original">
-                            <div class="character">CALAF</div>
-                            <div class="text">
-                                Nessun dorma! Nessun dorma!<br>
-                                Tu pure, o Principessa,<br>
-                                nella tua fredda stanza,<br>
-                                guardi le stelle che tremano<br>
-                                d'amore e di speranza.
-                            </div>
-                        </div>
-                        <div class="translation">
-                            <div class="character">CALAF</div>
-                            <div class="text">
-                                Ninguém durma! Ninguém durma!<br>
-                                Tu também, ó Princesa,<br>
-                                na tua fria alcova,<br>
-                                olhas as estrelas que tremem<br>
-                                de amor e de esperança.
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="lyrics-row">
-                        <div class="original">
-                            <div class="character">CALAF</div>
-                            <div class="text">
-                                Ma il mio mistero è chiuso in me,<br>
-                                il nome mio nessun saprà!<br>
-                                No, no, sulla tua bocca lo dirò<br>
-                                quando la luce splenderà!
-                            </div>
-                        </div>
-                        <div class="translation">
-                            <div class="character">CALAF</div>
-                            <div class="text">
-                                Mas meu mistério está guardado em mim,<br>
-                                ninguém saberá meu nome!<br>
-                                Não, não, na tua boca o direi<br>
-                                quando a luz brilhar!
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Canção para a Lua -->
-        <div id="lua-page" class="song-page">
-            <button class="back-btn">Voltar</button>
-            <div class="song-header">
-                <h2 class="song-title">Canção para a Lua</h2>
-                <p class="song-opera">Rusalka - Antonín Dvořák</p>
-            </div>
-            
-            <div class="lyrics-container">
-                <div class="lyrics-section">
-                    <h3 class="section-title">Ária</h3>
-                    <div class="lyrics-row">
-                        <div class="original">
-                            <div class="character">RUSALKA</div>
-                            <div class="text">
-                                Mesíčku na nebi hlubokém<br>
-                                Svetlo tvé daleko vidí,<br>
-                                Po světě bloudíš širokém,<br>
-                                Díváš se v příbytky lidí.
-                            </div>
-                        </div>
-                        <div class="translation">
-                            <div class="character">RUSALKA</div>
-                            <div class="text">
-                                Lua no céu profundo,<br>
-                                Tua luz vê longe,<br>
-                                Vagas pelo mundo vasto,<br>
-                                Olhas para as moradas humanas.
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="lyrics-row">
-                        <div class="original">
-                            <div class="character">RUSALKA</div>
-                            <div class="text">
-                                Mesíčku, postůj chvíli,<br>
-                                Řekni mi, kde je můj milý!<br>
-                                Řekni mu, stříbrný měsíčku,<br>
-                                mé že jej objímá ruce.
-                            </div>
-                        </div>
-                        <div class="translation">
-                            <div class="character">RUSALKA</div>
-                            <div class="text">
-                                Lua, detém-te um momento,<br>
-                                Diz-me, onde está o meu amado!<br>
-                                Diz-lhe, ó prateada lua,<br>
-                                que meus braços o abraçam.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- O Mio Babbino Caro -->
-        <div id="bambino-page" class="song-page">
-            <button class="back-btn">Voltar</button>
-            <div class="song-header">
-                <h2 class="song-title">O Mio Babbino Caro</h2>
-                <p class="song-opera">Gianni Schicchi - Giacomo Puccini</p>
-            </div>
-            
-            <div class="lyrics-container">
-                <div class="lyrics-section">
-                    <h3 class="section-title">Ária</h3>
-                    <div class="lyrics-row">
-                        <div class="original">
-                            <div class="character">LAURETTA</div>
-                            <div class="text">
-                                O mio babbino caro,<br>
-                                mi piace, è bello, bello.<br>
-                                Vo'andare in Porta Rossa<br>
-                                a comperar l'anello!
-                            </div>
-                        </div>
-                        <div class="translation">
-                            <div class="character">LAURETTA</div>
-                            <div class="text">
-                                Ó meu querido papai,<br>
-                                eu o amo, ele é belo, belo.<br>
-                                Quero ir à Porta Rossa<br>
-                                comprar o anel!
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="lyrics-row">
-                        <div class="original">
-                            <div class="character">LAURETTA</div>
-                            <div class="text">
-                                Sì, sì, ci voglio andare!<br>
-                                E se l'amassi indarno,<br>
-                                andrei sul Ponte Vecchio,<br>
-                                ma per buttarmi in Arno!
-                            </div>
-                        </div>
-                        <div class="translation">
-                            <div class="character">LAURETTA</div>
-                            <div class="text">
-                                Sim, sim, quero ir!<br>
-                                E se eu o amasse em vão,<br>
-                                iria à Ponte Vecchia<br>
-                                para me jogar no Arno!
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
         <!-- Brindisi -->
         <div id="brindisi-page" class="song-page">
             <button class="back-btn">Voltar</button>
@@ -576,6 +423,120 @@
                                 é o gozo do amor.<br>
                                 É uma flor que nasce e morre,<br>
                                 nem mais se pode gozar.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Recondita Armonia -->
+        <div id="recondita-page" class="song-page">
+            <button class="back-btn">Voltar</button>
+            <div class="song-header">
+                <h2 class="song-title">Recondita Armonia</h2>
+                <p class="song-opera">Tosca - Giacomo Puccini</p>
+            </div>
+            
+            <div class="lyrics-container">
+                <div class="lyrics-section">
+                    <h3 class="section-title">Ária</h3>
+                    <div class="lyrics-row">
+                        <div class="original">
+                            <div class="character">CAVARADOSSI</div>
+                            <div class="text">
+                                Recondita armonia di bellezze diverse!<br>
+                                È bruna Floria, l'ardente amante mia.<br>
+                                E te, beltade ignota, cinta di chiome bionde,<br>
+                                tu azzurro hai l'occhio, Tosca ha l'occhio nero!
+                            </div>
+                        </div>
+                        <div class="translation">
+                            <div class="character">CAVARADOSSI</div>
+                            <div class="text">
+                                Estranha harmonia de diferentes belezas!<br>
+                                Flória é morena, minha amante ardente.<br>
+                                E você, beleza desconhecida, de cabelos loiros,<br>
+                                tem olhos azuis, Tosca tem olhos negros!
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="lyrics-row">
+                        <div class="original">
+                            <div class="character">CAVARADOSSI</div>
+                            <div class="text">
+                                L'arte nel suo mistero<br>
+                                le diverse bellezze insiem confonde...<br>
+                                Ma nel ritrar costei<br>
+                                il mio solo pensiero,<br>
+                                ah! il mio sol pensier sei tu!
+                            </div>
+                        </div>
+                        <div class="translation">
+                            <div class="character">CAVARADOSSI</div>
+                            <div class="text">
+                                A arte em seu mistério<br>
+                                confunde as diferentes belezas...<br>
+                                Mas ao retratar esta,<br>
+                                meu único pensamento,<br>
+                                ah! meu único pensamento és tu!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- O Mio Babbino Caro -->
+        <div id="bambino-page" class="song-page">
+            <button class="back-btn">Voltar</button>
+            <div class="song-header">
+                <h2 class="song-title">O Mio Babbino Caro</h2>
+                <p class="song-opera">Gianni Schicchi - Giacomo Puccini</p>
+            </div>
+            
+            <div class="lyrics-container">
+                <div class="lyrics-section">
+                    <h3 class="section-title">Ária</h3>
+                    <div class="lyrics-row">
+                        <div class="original">
+                            <div class="character">LAURETTA</div>
+                            <div class="text">
+                                O mio babbino caro,<br>
+                                mi piace, è bello, bello.<br>
+                                Vo'andare in Porta Rossa<br>
+                                a comperar l'anello!
+                            </div>
+                        </div>
+                        <div class="translation">
+                            <div class="character">LAURETTA</div>
+                            <div class="text">
+                                Ó meu querido papai,<br>
+                                eu o amo, ele é belo, belo.<br>
+                                Quero ir à Porta Rossa<br>
+                                comprar o anel!
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="lyrics-row">
+                        <div class="original">
+                            <div class="character">LAURETTA</div>
+                            <div class="text">
+                                Sì, sì, ci voglio andare!<br>
+                                E se l'amassi indarno,<br>
+                                andrei sul Ponte Vecchio,<br>
+                                ma per buttarmi in Arno!
+                            </div>
+                        </div>
+                        <div class="translation">
+                            <div class="character">LAURETTA</div>
+                            <div class="text">
+                                Sim, sim, quero ir!<br>
+                                E se eu o amasse em vão,<br>
+                                iria à Ponte Vecchia<br>
+                                para me jogar no Arno!
                             </div>
                         </div>
                     </div>
@@ -661,6 +622,120 @@
                 </div>
             </div>
         </div>
+        
+        <!-- Canção para a Lua -->
+        <div id="lua-page" class="song-page">
+            <button class="back-btn">Voltar</button>
+            <div class="song-header">
+                <h2 class="song-title">Canção para a Lua</h2>
+                <p class="song-opera">Rusalka - Antonín Dvořák</p>
+            </div>
+            
+            <div class="lyrics-container">
+                <div class="lyrics-section">
+                    <h3 class="section-title">Ária</h3>
+                    <div class="lyrics-row">
+                        <div class="original">
+                            <div class="character">RUSALKA</div>
+                            <div class="text">
+                                Mesíčku na nebi hlubokém<br>
+                                Svetlo tvé daleko vidí,<br>
+                                Po světě bloudíš širokém,<br>
+                                Díváš se v příbytky lidí.
+                            </div>
+                        </div>
+                        <div class="translation">
+                            <div class="character">RUSALKA</div>
+                            <div class="text">
+                                Lua no céu profundo,<br>
+                                Tua luz vê longe,<br>
+                                Vagas pelo mundo vasto,<br>
+                                Olhas para as moradas humanas.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="lyrics-row">
+                        <div class="original">
+                            <div class="character">RUSALKA</div>
+                            <div class="text">
+                                Mesíčku, postůj chvíli,<br>
+                                Řekni mi, kde je můj milý!<br>
+                                Řekni mu, stříbrný měsíčku,<br>
+                                mé že jej objímá ruce.
+                            </div>
+                        </div>
+                        <div class="translation">
+                            <div class="character">RUSALKA</div>
+                            <div class="text">
+                                Lua, detém-te um momento,<br>
+                                Diz-me, onde está o meu amado!<br>
+                                Diz-lhe, ó prateada lua,<br>
+                                que meus braços o abraçam.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Nessun Dorma -->
+        <div id="nessun-page" class="song-page">
+            <button class="back-btn">Voltar</button>
+            <div class="song-header">
+                <h2 class="song-title">Nessun Dorma</h2>
+                <p class="song-opera">Turandot - Giacomo Puccini</p>
+            </div>
+            
+            <div class="lyrics-container">
+                <div class="lyrics-section">
+                    <h3 class="section-title">Ária</h3>
+                    <div class="lyrics-row">
+                        <div class="original">
+                            <div class="character">CALAF</div>
+                            <div class="text">
+                                Nessun dorma! Nessun dorma!<br>
+                                Tu pure, o Principessa,<br>
+                                nella tua fredda stanza,<br>
+                                guardi le stelle che tremano<br>
+                                d'amore e di speranza.
+                            </div>
+                        </div>
+                        <div class="translation">
+                            <div class="character">CALAF</div>
+                            <div class="text">
+                                Ninguém durma! Ninguém durma!<br>
+                                Tu também, ó Princesa,<br>
+                                na tua fria alcova,<br>
+                                olhas as estrelas que tremem<br>
+                                de amor e de esperança.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="lyrics-row">
+                        <div class="original">
+                            <div class="character">CALAF</div>
+                            <div class="text">
+                                Ma il mio mistero è chiuso in me,<br>
+                                il nome mio nessun saprà!<br>
+                                No, no, sulla tua bocca lo dirò<br>
+                                quando la luce splenderà!
+                            </div>
+                        </div>
+                        <div class="translation">
+                            <div class="character">CALAF</div>
+                            <div class="text">
+                                Mas meu mistério está guardado em mim,<br>
+                                ninguém saberá meu nome!<br>
+                                Não, não, na tua boca o direi<br>
+                                quando a luz brilhar!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -672,6 +747,9 @@
                     const songId = this.getAttribute('data-song');
                     document.getElementById('home-page').style.display = 'none';
                     document.getElementById(`${songId}-page`).style.display = 'block';
+                    
+                    // Rolagem para o topo da página
+                    window.scrollTo(0, 0);
                 });
             });
             
@@ -683,6 +761,9 @@
                         page.style.display = 'none';
                     });
                     document.getElementById('home-page').style.display = 'block';
+                    
+                    // Rolagem para o topo da página
+                    window.scrollTo(0, 0);
                 });
             });
         });
